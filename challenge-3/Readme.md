@@ -78,5 +78,33 @@ After you have applied solution, try changing capacity for ASG resource to verif
 
 Delete all the infrastructure created as part of this Lab.
 
+### Como deve ficar os arquivos conf e credentials
+
+conf
+
+```
+[profile asg]
+region=us-east-1
+ouput=json
+role_arn=arn:aws:iam::350644740974:role/EC2FullAccess
+
+[profile iam]
+region=us-east-1
+ouput=json
+role_arn=arn:aws:iam::350644740974:role/IAMFullAccess
+```
+
+credentials (ambos com access_key e secret_key setados)
+
+```
+[asg]
+aws_access_key_id=
+aws_secret_access_key=
+
+[iam]
+aws_access_key_id=
+aws_secret_access_key=
+```
+
 
 
