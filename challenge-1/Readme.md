@@ -83,3 +83,34 @@ Save the output values to files as per the below table
 #### 8. Destroy all Resources
 
 Destroy all resources created as part of this Challenge 1
+
+### Notas da implementação
+
+Outputs fical salvos no tfstate depois do comando apply:
+
+```
+# Para listar os outputs
+terraform output
+
+# Para salvar o conteúdo do output em aquivos
+terraform output s3_buckets > s3.txt
+terraform output user_names > iam-users.txt
+
+# Para dar append em arquivo, usamos o >>
+terraform output sg_id > sg-combined.txt
+terraform output sg_rule_id >> sg-combined.txt
+```
+
+Para remover um recurso do arquivo state, usamos os seguintes comandos:
+
+```
+# Para saber quais recursos estão sendo gerenciados
+terraform state list
+
+# Para excluir os objetos buckets do gerenciamento
+terraform state rm 'aws_s3_object.object["kplabs-1"]'
+terraform state rm 'aws_s3_object.object["kplabs-2"]'
+
+# Ou
+terraform state rm aws_s3_object.object
+```
